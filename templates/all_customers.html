@@ -1,0 +1,83 @@
+<style>
+    .error {
+    color: red;
+    border: 2px solid red;
+}
+    .success {
+    color: limegreen;
+    border: 2px solid limegreen;
+}
+
+</style>
+
+
+{% extends "base.html" %}
+
+{% block content %}
+</br></br></br>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="{{ category }}">{{ message }}</div>
+  {% endfor %}
+{% endwith %}
+
+</br>
+
+
+<p><h3> Asistal Assist System - List Of All Customers </h3></p>
+
+
+<form method="POST" action="">
+        <div>
+        {{ form.hidden_tag() }}
+
+        {{ form.search_company_name.label(class="form-control-label") }}
+        {{ form.search_company_name(class="form-control  form-control-lg ") }}              
+        
+        </div>
+        <div class="form-group pt-3">
+        {{form.submit(class="btn btn-outline-info")}} &nbsp&nbsp&nbsp&nbsp&nbsp 
+        <a href="{{url_for('all_customers')}}" button type="button" class="btn btn-warning">See All Customers</a></td></tr>
+        </div>
+
+
+</form></br></br>
+
+<h4>All Customers</h4>
+
+
+    <div class="shadow p-3 mb-5 mt-1 bg-body rounded">
+        <table>
+            <tr>
+                <th style="width:5%">CUSTOMER ID </th>
+                <th style="width:8%">COMPANY NAME</th>
+                <th style="width:8%">STAFF NAME</th>
+                <th style="width:8%">CUSTOMER COUNTRY</th>
+                <th style="width:8%">SHOW CUSTOMER INFO</th>
+                <th style="width:8%">UPDATE CUSTOMER INFO</th>
+            </tr>
+        {% for customer in customers_to_show %}            
+            <tr>
+                <td>{{ customer.id }} </td>
+                <td> {{ customer.company_name_db }} </td>
+                <td> {{ customer.staff1_name_db }} </td>
+                <td> {{ customer.customer_country_db }}</td>
+                <td><a href="{{url_for('show_customer',id=customer.id)}}">Show</a></td>
+                <td><a href="{{url_for('update_customer1',id=customer.id)}}">Update</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    
+        
+    </div>
+
+</br></br>
+<hr>
+
+<p><b>Asistal - Assist System</b> / Version - December 2021-02</p>
+
+{% endblock content %}
+
+
+

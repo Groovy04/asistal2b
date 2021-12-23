@@ -1,0 +1,117 @@
+<head>
+    <style>
+    
+    #myform {
+        width: 80%;
+    }
+    #mytable {
+        border-spacing: 0px;
+    }
+    </style>
+</head>
+{% extends "base.html"%}
+
+
+{%block content%}
+
+
+
+<br/><br/><br/>
+<p><h3> Asistal Assist System - Customer Information Entry Screen </h3></p>
+
+<br/><br/>
+{% for message in get_flashed_messages() %}
+<div class="alert alert-success" role="alert">{{message}}</div>
+{% endfor %}
+
+
+{% if name %}
+    <b><h3> Hello {{name}}! How are you today? </h3></b>
+{% else %}
+    <br/>
+    <form method="POST", id="myform">
+        {{form.hidden_tag()}}
+        
+        <table style="width:100%", id="mytable">
+        
+        <tr><td>{{form.company_name.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.company_name(class="form-control")}} </td> </tr>
+        
+        <tr><td>{{form.staff1_name.label(class="form-label")}} </td> <td>{{form.staff1_birthdate.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.staff1_name(class="form-control")}} </td> <td>{{form.staff1_birthdate(class="form-control", type="date")}} </td> </tr>
+        
+        <tr><td>{{form.staff1_personal_notes.label(class="form-label")}} </td> <td>{{form.staff1_email.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.staff1_personal_notes(class="form-control")}} </td> <td>{{form.staff1_email(class="form-control")}} </td> </tr>
+        
+        <tr><td>{{form.gender.label(class="form-label")}} </td> <td>{{form.prefix.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.gender(class="form-control")}} </td> <td>{{form.prefix(class="form-control")}} </td> </tr>
+
+        <tr><td>{{form.staff2_name.label(class="form-label")}} </td> <td>{{form.staff2_birthdate.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.staff2_name(class="form-control")}} </td> <td>{{form.staff2_birthdate(class="form-control", type="date")}} </td> </tr>
+        <tr><td>{{form.staff2_personal_notes.label(class="form-label")}} </td> <td>{{form.staff2_email.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.staff2_personal_notes(class="form-control")}} </td> <td>{{form.staff2_email(class="form-control")}} </td> </tr>
+
+        <tr><td>{{form.staff3_name.label(class="form-label")}} </td> <td>{{form.staff3_birthdate.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.staff3_name(class="form-control")}} </td> <td>{{form.staff3_birthdate(class="form-control", type="date")}} </td> </tr>
+        <tr><td>{{form.staff3_personal_notes.label(class="form-label")}} </td> <td>{{form.staff3_email.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.staff3_personal_notes(class="form-control")}} </td> <td>{{form.staff3_email(class="form-control")}} </td> </tr>
+
+        <tr><td>{{form.customer_tel1.label(class="form-label")}} </td> <td>{{form.customer_tel2.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.customer_tel1(class="form-control")}} </td> <td>{{form.customer_tel2(class="form-control")}} </td> </tr>
+        <tr><td>{{form.customer_tel3.label(class="form-label")}} </td> <td>{{form.customer_website.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.customer_tel3(class="form-control")}} </td> <td>{{form.customer_website(class="form-control")}} </td> </tr>
+
+        <tr><td>{{form.customer_type.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.customer_type(class="form-control")}} </td> </tr>
+
+        <tr><td>{{form.customer_notes.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.customer_notes(class="form-control")}} </td> </tr>
+
+        <tr><td>{{form.local_international.label(class="form-label")}} </td> <td>{{form.customer_country.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.local_international(class="form-control")}} </td> <td>{{form.customer_country(class="form-control")}} </td> </tr>
+
+        <tr><td>{{form.customer_address.label(class="form-label")}} </td></tr>
+        <tr><td>{{form.customer_address(class="form-control")}} </td></tr>
+        
+        <tr><td>{{form.last_offer_date.label(class="form-label")}} </td> <td>{{form.last_offer_result.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.last_offer_date(class="form-control", type="date")}} </td> <td>{{form.last_offer_result(class="form-control")}} </td> </tr>
+        
+        <tr><td>{{form.rejection_reason.label(class="form-label")}} </td></tr>
+        <tr><td>{{form.rejection_reason(class="form-control")}} </td></tr>
+        
+        <tr><td>{{form.customer_source.label(class="form-label")}} </td> <td>{{form.reference_name.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.customer_source(class="form-control")}} </td> <td>{{form.reference_name(class="form-control")}} </td> </tr>
+        
+        <tr><td>{{form.competitor_name.label(class="form-label")}} </td> <td>{{form.competitor_conditions.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.competitor_name(class="form-control")}} </td> <td>{{form.competitor_conditions(class="form-control")}} </td> </tr>
+
+        <tr><td>{{form.language1.label(class="form-label")}} </td> <td>{{form.language2.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.language1(class="form-control")}} </td> <td>{{form.language2(class="form-control")}} </td> </tr>
+        <tr><td>{{form.language3.label(class="form-label")}} </td> <td>{{form.language4.label(class="form-label")}} </td> </tr>
+        <tr><td>{{form.language3(class="form-control")}} </td> <td>{{form.language4(class="form-control")}} </td> </tr>
+        
+        </table>
+        <br/>
+        {{form.submit(class="btn btn-outline-primary")}}
+    </form>
+
+
+
+    <p><b>Recorded customers are as follows:</b></p>
+
+    <table class="table table-hover table-bordered table-striped table-light">
+        {% for customer in all_customers %}
+            <tr>
+                <td>{{ customer.id }}</td> <td>{{ customer.company_name_db }}</td> <td><a href="{{url_for('update_customer1',id=customer.id)}}">Update</a></td>
+            </tr>
+        {% endfor %}
+        
+        </table>
+
+
+
+{% endif %}
+<br/><br/>
+<p><b>Asistal - Assist System</b> / Version - December 2021-02</p>
+
+{%endblock%}

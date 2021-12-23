@@ -1,0 +1,82 @@
+<style>
+    .error {
+    color: red;
+    border: 2px solid red;
+}
+    .success {
+    color: limegreen;
+    border: 2px solid limegreen;
+}
+
+</style>
+
+{% extends "base.html" %}
+
+{% block content %}
+</br></br>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="{{ category }}">{{ message }}</div>
+  {% endfor %}
+{% endwith %}
+
+</br></br>
+
+
+<p><h3> Asistal Assist System - Customer Information Screen </h3></p>
+
+
+{% if customer_to_show %}
+    
+    <h3 style="color:green;"> Customer Company Name : <b> {{ customer_to_show.company_name_db }}</b></h3></br>
+    </br><a href="{{url_for('update_customer1',id=id)}}" button type="button" class="btn btn-info">Update Customer Information</a>    
+    <div class="shadow p-3 mb-5 mt-1 bg-body rounded">
+        <table style="width:100%" style="font-size:16px" class="table table-hover table-bordered table-striped">
+
+        <tr>
+            <th style="width:30%"></th>
+            <th style="width:30%"></th>
+            <th style="width:40%"></th>
+            
+        
+        </tr>
+
+        
+        <tr> <td> <b>Staff 1 Name : </b>{{ customer_to_show.staff1_name_db }} </td>  <td><b>Staff 1 Email : </b>{{ customer_to_show.staff1_email_db }}</td> <td><b>Staff 1 Notes : </b>{{ customer_to_show.staff1_personal_notes_db }}</td> </tr>
+        
+        <tr><td><b>Staff 1 Birthday : </b>{{ dt_string_staff_1_birthdate }}</td> <td><b>Staff 1 Gender : </b>{{ customer_to_show.gender_db }}</td>  <td> <b>Staff 1 Prefix : </b>{{ customer_to_show.prefix_db }}</td> </tr>
+        
+        <tr> <td> <b>Staff 2 Name : </b>{{ customer_to_show.staff2_name_db }} </td>  <td><b>Staff 2 Email : </b>{{ customer_to_show.staff2_email_db }}</td> <td><b>Staff 2 Notes : </b>{{ customer_to_show.staff2_personal_notes_db }}</td> </tr>
+        <tr><td><b>Staff 2 Birthday : </b>{{ dt_string_staff_2_birthdate }}</td> </tr>
+
+        <tr> <td> <b>Staff 3 Name : </b>{{ customer_to_show.staff3_name_db }} </td>  <td><b>Staff 3 Email : </b>{{ customer_to_show.staff3_email_db }}</td> <td><b>Staff 3 Notes : </b>{{ customer_to_show.staff3_personal_notes_db }}</td> </tr>
+        <tr><td><b>Staff 3 Birthday : </b>{{ dt_string_staff_3_birthdate }}</td> </tr>
+        <tr> <td> <b>Customer Tel 1 : </b>{{ customer_to_show.customer_tel1_db }} </td>  <td> <b>Customer Tel 2 : </b>{{ customer_to_show.customer_tel2_db }} </td> <td> <b>Customer Tel 3 : </b>{{ customer_to_show.customer_tel3_db }} </td> </tr>
+        <tr><td colspan="3" ><b>Customer Website : </b>{{ customer_to_show.customer_website_db }}</td> </tr>
+        <tr><td><b>Customer Type : </b>{{ customer_to_show.customer_type_db }}</td> <td><b>Customer Location : </b>{{ customer_to_show.local_international_db }}</td>  </tr>
+        <tr><td colspan="3" ><b>General Notes About Customer : </b>{{ customer_to_show.customer_notes_db }}</td> </tr>
+        <tr><td><b>Customer Country : </b>{{ customer_to_show.customer_country_db }}</td> <td colspan="2" ><b>Customer Address : </b>{{ customer_to_show.customer_address_db }}</td>  </tr>
+        <tr> <td> <b>Last Offer Date : </b>{{ dt_string_last_offer_date }} </td>  <td><b>Last Offer Result : </b>{{ customer_to_show.last_offer_result_db }}</td> <td><b>Rejection Reason - if any : </b>{{ customer_to_show.rejection_reason_db }}</td> </tr>
+        <tr><td><b>Customer Source : </b>{{ customer_to_show.customer_source_db }}</td> <td><b>Customer Reference Name - if any : </b>{{ customer_to_show.reference_name_db }}</td>  </tr>
+        <tr><td><b>Competitors the Customer is Buying From : </b>{{ customer_to_show.competitor_name_db }}</td> <td colspan="2" ><b>Notes About Comptetitor Conditions - if any : </b>{{ customer_to_show.competitor_conditions_db }}</td>  </tr>
+        <tr><td><b>Language Spoken in Customer's Company -1 : </b>{{ customer_to_show.language1_db }}</td> <td><b>Language Spoken in Customer's Company -2 : </b>{{ customer_to_show.language2_db }}</td>  </tr>
+        <tr><td><b>Language Spoken in Customer's Company -3 : </b>{{ customer_to_show.language3_db }}</td> <td><b>Language Spoken in Customer's Company -4 : </b>{{ customer_to_show.language4_db }}</td>  </tr>
+        
+        </table>
+    </div>
+
+
+
+
+{% endif %}
+
+</br></br>
+<hr>
+</br></br>
+<p><b>Asistal - Assist System</b> / Version - December 2021-02</p>
+
+{% endblock content %}
+
+</br></br>
+

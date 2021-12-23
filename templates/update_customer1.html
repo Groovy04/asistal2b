@@ -1,0 +1,96 @@
+
+{% extends "base.html"%}
+
+{%block content%}
+</br></br></br></br>
+{% for message in get_flashed_messages() %}
+<div class="alert alert-success" role="alert">{{message}}</div>
+{% endfor %}
+
+
+
+
+<b> <h3> Updating customer information for :  <b>{{ customer_to_update.company_name_db }} </b> </h3> </b>
+<br/>
+    <div class="shadow p-3 mb-5 bg-body rounded">
+        <form action="/update_customer1/{{ customer_to_update.id }}"  method="POST">
+            {{form.hidden_tag()}}
+            {{form.submit(class="btn btn-outline-primary")}}
+            <table><tr><td>{{form.company_name.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.company_name(class="form-control", value=customer_to_update.company_name_db)}} </td> </tr>
+                
+                <tr><td>{{form.staff1_name.label(class="form-label")}} </td> <td>{{form.staff1_birthdate.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.staff1_name(class="form-control", value=customer_to_update.staff1_name_db)}} </td> <td>{{form.staff1_birthdate(class="form-control", type="date")}} </td> </tr>
+                
+                <tr><td>{{form.staff1_personal_notes.label(class="form-label")}} </td> <td>{{form.staff1_email.label(class="form-label")}} </td> </tr>
+                
+                <tr><td>{{form.staff1_personal_notes(class="form-control", value=customer_to_update.staff1_personal_notes_db)}} </td> <td>{{form.staff1_email(class="form-control", value=customer_to_update.staff1_email_db)}} </td> </tr>
+                <tr><td>{{form.gender.label(class="form-label")}} </td> <td>{{form.prefix.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.gender(class="form-control", value=customer_to_update.gender_db)}} </td> <td>{{form.prefix(class="form-control", value=customer_to_update.prefix_db)}} </td> </tr>
+
+                <tr><td>{{form.staff2_name.label(class="form-label")}} </td> <td>{{form.staff2_birthdate.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.staff2_name(class="form-control", value=customer_to_update.staff2_name_db)}} </td> <td>{{form.staff2_birthdate(class="form-control", type="date")}} </td> </tr>
+                <tr><td>{{form.staff2_personal_notes.label(class="form-label")}} </td> <td>{{form.staff2_email.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.staff2_personal_notes(class="form-control", value=customer_to_update.staff2_personal_notes_db)}} </td> <td>{{form.staff2_email(class="form-control", value=customer_to_update.staff2_email_db)}} </td> </tr>
+
+                <tr><td>{{form.staff3_name.label(class="form-label")}} </td> <td>{{form.staff3_birthdate.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.staff3_name(class="form-control", value=customer_to_update.staff3_name_db)}} </td> <td>{{form.staff3_birthdate(class="form-control", type="date")}} </td> </tr>
+                <tr><td>{{form.staff3_personal_notes.label(class="form-label")}} </td> <td>{{form.staff3_email.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.staff3_personal_notes(class="form-control", value=customer_to_update.staff3_personal_notes_db)}} </td> <td>{{form.staff3_email(class="form-control", value=customer_to_update.staff3_email_db)}} </td> </tr>
+
+                <tr><td>{{form.customer_tel1.label(class="form-label")}} </td> <td>{{form.customer_tel2.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.customer_tel1(class="form-control", value=customer_to_update.customer_tel1_db)}} </td> <td>{{form.customer_tel2(class="form-control", value=customer_to_update.customer_tel2_db)}} </td> </tr>
+                <tr><td>{{form.customer_tel3.label(class="form-label")}} </td> <td>{{form.customer_website.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.customer_tel3(class="form-control", value=customer_to_update.customer_tel3_db)}} </td> <td>{{form.customer_website(class="form-control", value=customer_to_update.customer_website_db)}} </td> </tr>
+
+                
+                <tr><td>{{form.customer_type.label(class="form-label")}}</td> </tr>
+                <tr><td>{{form.customer_type(class="form-control")}}</td> </tr>
+
+                <tr><td>{{form.customer_notes.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.customer_notes(class="form-control", value=customer_to_update.customer_notes_db)}} </td> </tr>
+
+                <tr><td>{{form.local_international.label(class="form-label")}} </td> <td>{{form.customer_country.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.local_international(class="form-control")}} </td> <td>{{form.customer_country(class="form-control", value=customer_to_update.customer_country_db)}} </td> </tr>
+
+                <tr><td>{{form.customer_address.label(class="form-label")}} </td></tr>
+                <tr><td>{{form.customer_address(class="form-control", value=customer_to_update.customer_address_db)}} </td></tr>
+                
+                <tr><td>{{form.last_offer_date.label(class="form-label")}} </td> <td>{{form.last_offer_result.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.last_offer_date(class="form-control", type="date")}} </td> <td>{{form.last_offer_result(class="form-control")}} </td> </tr>
+                
+                <tr><td>{{form.rejection_reason.label(class="form-label")}} </td></tr>
+                <tr><td>{{form.rejection_reason(class="form-control", value=customer_to_update.rejection_reason_db)}} </td></tr>
+                
+                <tr><td>{{form.customer_source.label(class="form-label")}} </td> <td>{{form.reference_name.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.customer_source(class="form-control")}} </td> <td>{{form.reference_name(class="form-control", value=customer_to_update.reference_name_db)}} </td> </tr>
+                
+                <tr><td>{{form.competitor_name.label(class="form-label")}} </td> <td>{{form.competitor_conditions.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.competitor_name(class="form-control", value=customer_to_update.competitor_name_db)}} </td> <td>{{form.competitor_conditions(class="form-control", value=customer_to_update.competitor_conditions_db)}} </td> </tr>
+
+                <tr><td>{{form.language1.label(class="form-label")}} </td> <td>{{form.language2.label(class="form-label")}} </td> </tr>
+                <tr><td>{{form.language1(class="form-control", value=customer_to_update.language1_db)}} </td> <td>{{form.language2(class="form-control", value=customer_to_update.language2_db)}} </td> </tr>
+                <tr><td>{{form.language3.label(class="form-label", value=customer_to_update.staff1_name_db)}} </td> <td>{{form.language4.label(class="form-label", value=customer_to_update.staff1_name_db)}} </td> </tr>
+                <tr><td>{{form.language3(class="form-control", value=customer_to_update.language3_db)}} </td> <td>{{form.language4(class="form-control", value=customer_to_update.language4_db)}} </td> </tr>
+
+                
+                
+                <tr><td></td></tr>
+                <tr><td>{{form.submit(class="btn btn-outline-primary")}}&nbsp&nbsp&nbsp&nbsp&nbsp
+    
+    
+            </table>
+    
+        </form>
+    </div>
+
+ 
+
+    </table>
+
+
+<br/><br/>
+<p><b>Actual Sales KPI Update Screen Tests </b></p>
+
+
+{%endblock%}

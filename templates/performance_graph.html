@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+ <head>
+  <title>Figure examples</title>
+  <link rel="stylesheet" href="https://cdn.bokeh.org/bokeh/release/bokeh-0.10.0.min.css" type="text/css" />
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.1.min.js"></script>
+  {{ script|safe }}
+ </head>
+
+<style>
+    .error {
+    color: red;
+    border: 2px solid red;
+}
+    .success {
+    color: limegreen;
+    border: 2px solid limegreen;
+}
+
+    .bk-root {
+      position: relative;
+
+    }
+    .bokeh {
+      position: relative;
+      left: 0px;
+      top: 0px;
+      z-index: -1;
+
+    }
+
+</style>
+
+{% extends "base.html"%}
+
+{%block content%}
+
+</br></br></br></br>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="{{ category }}">{{ message }}</div>
+  {% endfor %}
+{% endwith %}
+</br>
+<p><h3> Asistal Assist System - Main Sales KPI target and realization graphs.</h3></p>
+
+</br>
+<p style="color:orangered;"><b>Bars represent the actual values while circles represent target values.</b></p>
+
+<p>Graphs below are for the year 2021. <text style="color:orangered;">
+
+
+<div class='bokeh'>
+    {{div|safe}}
+</div>
+
+</br>
+</p><p><b>Asistal - Assist System</b> / Version - December 2021-01</p>
+
+{%endblock%} 
